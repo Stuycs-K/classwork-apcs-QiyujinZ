@@ -1,12 +1,12 @@
 public class MyArrays{
 
   public static String aryToString (int[] nums){
-    String aryContent = "["
+    String aryContent = "[";
     for (int i = 0; i < nums.length-1; i ++){
       aryContent += nums[i] + ", ";
     }
     if (nums.length != 0)
-      aryContent += nums[length-1];
+      aryContent += nums[nums.length-1];
     aryContent += "]";
     return aryContent;
   }
@@ -33,14 +33,10 @@ public class MyArrays{
     return newAry;
   }
   
-  public static void main[Str[] args]{
+  public static void main(String[] args){
     int[] array1 = new int[] {0,1,2,3,4,5,6,7,8,9,10};
-    System.out.println(array1 == returnCopy(array1));
-    String[] arrayStr = new String[] {"a","b","c","d","e","f","g"};
-    System.out.println(arrayStr == returnCopy(arrayStr));
-    String[] arrayEmpty = new String[0];
-    System.out.println(arrayEmpty == returnCopy(arrayEmpty));
+    System.out.println(aryToString(returnCopy(array1)));
     int[] array2 = new int[] {11,12,13,14,15,16};
-    System.out.println(concatArray(array1,array2))
+    System.out.println(aryToString(concatArray(array1,array2)));
   }
 }
