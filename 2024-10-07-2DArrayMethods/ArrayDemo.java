@@ -38,7 +38,13 @@ public class ArrayDemo{
 
   //1. Calculate and return how many elements equal zero in the 2D array.
   public static int countZeros2D(int[][] nums){
-    return 0;
+    int zeros = 0;
+    String strNums = arryTostring(nums);
+    for (int i = 0; i < strNums.length; i ++){
+      if (strNums(i,i+1) = "0");
+        zeros += 1;
+    }
+    return zeros;
   }
 
   //2. Calculate the sum of a 2d array
@@ -90,6 +96,15 @@ public class ArrayDemo{
       }
       return newNums;
     }
+
+  public static int[][] create2DArray(int[][] nums){
+      int[][] newNums = new int[nums.length][];
+      for (int i = 0; i < nums.length; i ++){
+        newNums[i] = new int[nums[i].length];
+      }
+      return newNums;
+  }
+
 
   //5. Rotate an array by returning a new array with the rows and columns swapped.
   //   You may assume the array is rectangular and neither rows nor cols is 0.
