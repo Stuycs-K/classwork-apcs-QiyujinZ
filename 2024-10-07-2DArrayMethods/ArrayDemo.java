@@ -39,9 +39,9 @@ public class ArrayDemo{
   //1. Calculate and return how many elements equal zero in the 2D array.
   public static int countZeros2D(int[][] nums){
     int zeros = 0;
-    String strNums = arryTostring(nums);
-    for (int i = 0; i < strNums.length; i ++){
-      if (strNums(i,i+1) = "0");
+    String strNums = arrToString(nums);
+    for (int i = 0; i < strNums.length(); i ++){
+      if (strNums.substring(i,i+1).equals("0"));
         zeros += 1;
     }
     return zeros;
@@ -126,6 +126,26 @@ public class ArrayDemo{
   //   e.g. htmlTable(new int[][]{{1,2},{3}})  returns:
   // "<table><tr><td>1</td><td>2</td></tr><tr><td>3</td></tr></table>"
   public static String htmlTable(int[][]nums){
-    return "";
+    String table = "<table>";
+    for (int i = 0; i < nums.length; i ++){
+      table += htmlRow(nums[i]);
   }
+    table += "</table>";
+    return table;
+}
+
+  public static String htmlRow(int[] nums){
+    String row = "<tr>";
+    for(int i = 0; i < nums.length; i ++){
+      row += htmlCell(nums[i]);
+  }
+    row += "</tr>";
+    return row;
+}
+
+  public static String htmlCell(int num){
+    String cell = "<td>";
+    cell += num + "</td>";
+    return cell;
+}
 }
