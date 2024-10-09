@@ -5,7 +5,11 @@ public class ArrayDemo{
     //You can now use Arrays.toString(yourArray) instead of writing arrayToString again.
     //Compare Arrays.toString(yourArray) to YOUR arrayToString() method to make sure yours is correct
     //do not use any other Arrays.method()
-
+    int[][] test = new int[3][4];
+    System.out.println(countZeros2D(test));
+    System.out.println(Arrays.deepToString(test));
+    System.out.println(arrToString(test));
+    System.out.println(htmlTable(test));
   }
 
   //0. Include your prior methods to help you print a 1D/2D array of ints.
@@ -41,7 +45,7 @@ public class ArrayDemo{
     int zeros = 0;
     String strNums = arrToString(nums);
     for (int i = 0; i < strNums.length(); i ++){
-      if (strNums.substring(i,i+1).equals("0"));
+      if (strNums.substring(i,i+1).equals("0"))
         zeros += 1;
     }
     return zeros;
