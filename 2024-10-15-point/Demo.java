@@ -20,5 +20,8 @@ public class Demo{
     System.out.println(distance(p1,p2));
     System.out.println(Point.distance(p1,p2));
     System.out.println(p1.distanceTo(p2));
+    System.out.println(p4.distanceTo(p3));
+    System.out.println(Point.distance(p1,p3));
+    System.out.println(distance(p3,p2));
   }
 }
