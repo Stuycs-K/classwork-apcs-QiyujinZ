@@ -11,8 +11,14 @@ public class ReadFile {
       File file = new File("ReadFile.java");//1
       Scanner input = new Scanner(file);
       //CODE THAT SCANS THE FILE.
-      while(input.hasNextLine()){
-        System.out.println(input.nextLine());
+      while(input.hasNextLine()) {
+      String line = input.nextLine();
+        for (int i = 0; i < line.length(); i ++){
+          if (line.charAt(i) == ('{')){
+            System.out.println(line);
+            break;
+          }
+        }
       }
       input.close();//releases the file from your program
 
@@ -20,6 +26,6 @@ public class ReadFile {
       //File not found what should you do?
       System.out.println("File not found");
       return; //you can return from a void function just don't put a value.
-    }
-  }
-}
+    } 
+  } 
+} 
