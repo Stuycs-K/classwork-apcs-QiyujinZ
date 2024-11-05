@@ -32,9 +32,11 @@ public class TriangleTester{
 		while(input.hasNextLine()){
 			group.add(input.nextLine().split("  "));
 		}
+		/*
 		for (int i = 0; i < group.size(); i ++){
 			System.out.println(group.get(i));
 		}
+		*/
 		for(int i = 0; i < group.size(); i += 3){
 			count += isTriangle(Integer.valueOf(group.get(i)[0]), Integer.valueOf(group.get(i+1)[0]),Integer.valueOf(group.get(i+2)[0]));
 			count += isTriangle(Integer.valueOf(group.get(i)[1]), Integer.valueOf(group.get(i+1)[1]),Integer.valueOf(group.get(i+2)[1]));
