@@ -5,6 +5,12 @@ public class Bird extends Animal {
 
   //4.
   public Bird(String noise, int age, String name, double height, String color){
+<<<<<<< HEAD
+=======
+    super(noise,age,name);
+    this.height = height;
+    this.color = color;
+>>>>>>> 86d7f708b1ef2992c7cc6c8795f69bf4758f34ac
     //In order to construct the Bird you must first call the superclass constructor
     //This is done by saying: super(parameters)
     //e.g. super("Doug",10,"Squaaaak!");
@@ -22,7 +28,16 @@ public class Bird extends Animal {
     I am ? inches tall
   */
   //You can call the old method using super.speak();
+<<<<<<< HEAD
   //public void speak(){}
+=======
+  public void speak()
+  {
+    super.speak();
+    System.out.println("My feathers are colored "+color);
+    System.out.println("I am "+height+" inches tall");
+  }
+>>>>>>> 86d7f708b1ef2992c7cc6c8795f69bf4758f34ac
 
 
 
@@ -32,7 +47,14 @@ public class Bird extends Animal {
 
   //Step 8:In Driver.java answer: What is the difference before and after you override this method?
   //What does this tell us about methods that are overridden?
+<<<<<<< HEAD
   //public String getName(){  }
+=======
+  public String getName(){
+    return ("The Mighty " + super.getName());
+
+}
+>>>>>>> 86d7f708b1ef2992c7cc6c8795f69bf4758f34ac
 
   //Go back and complete steps 9 onwards.
 
