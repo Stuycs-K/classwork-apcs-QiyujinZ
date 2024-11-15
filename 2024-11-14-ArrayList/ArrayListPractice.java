@@ -80,7 +80,7 @@ public class ArrayListPractice
     System.out.println(a2);
     System.out.println(makeReversedList(a2));
 	*/
-	
+	/*
 	//test mixLists
 	ArrayList<String>a3 = createRandomArray(10);
 	ArrayList<String>b1 = createRandomArray(20);
@@ -93,6 +93,7 @@ public class ArrayListPractice
 	System.out.println(b2);
 	System.out.println(mixLists(a3,b1));
 	System.out.println(mixLists(a3,b2));
+	*/
 	
   }
 }
