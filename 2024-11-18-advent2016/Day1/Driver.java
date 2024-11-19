@@ -1,14 +1,11 @@
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.util.Scanner;
-import java.util.ArrayList;
+import java.io.*;
+import java.util.*;
 
-public class Driver{
-  private int direction = 0;
-  
-  public static int getDirections(String Filename){
+public class Driver{  
+  public static String getDirections(String Filename){
+    int direction = 0;
     String directions = "";
-    int right = 0
+    int right = 0;
     int left = 0;
     int north = 0;
     int south = 0;
@@ -21,6 +18,7 @@ public class Driver{
         directions += input.next();
         }
       String Directions[] = directions.split(",");
+        System.out.println(Arrays.toString(Directions));
       for (int i = 0; i < Directions.length; i ++){
         if(Directions[i].charAt(0) == 'R'){
           direction += 90;
@@ -29,26 +27,29 @@ public class Driver{
           direction -= 90;
         }
         
-        if (direction % 360 = 0){
-        north += (int) Directions[i].substring(1);
+        if (direction % 360 == 0){
+        north += Integer.parseInt(Directions[i].substring(1));
         }
-        if (direction % 360 = 90){
-        east += (int) Directions[i].substring(1);
+        if (direction % 360 == 90){
+        east += Integer.parseInt(Directions[i].substring(1));
         }
-        if (direction % 360 = 180){
-        south += (int) Directions[i].substring(1);
+        if (direction % 360 == 180){
+        south += Integer.parseInt(Directions[i].substring(1));
         }
-        if (direction % 360 = 270){
-        west += (int) Directions[i].substring(1);
+        if (direction % 360 == 270){
+        west += Integer.parseInt(Directions[i].substring(1));
         }
-        }
-        }
+       }
+       left = east - west;
+       right = north - south;
+       return ("east/west: " + left + "north/south: " + right+"");
       }
-      
-      
-    }
-  }
-  public static void main (String[] args){
+    catch(Exception e){
     
+    }
+    return "0";  
+    }
+  public static void main (String[] args){
+    System.out.println(getDirections("inputTxt.txt"));
   }
 }
