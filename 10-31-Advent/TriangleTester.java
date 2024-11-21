@@ -11,7 +11,7 @@ public class TriangleTester{
       Scanner input = new Scanner(file);
       while (input.hasNextLine()){
 		Scanner line = new Scanner(input.nextLine());
-		//System.out.println(""+line.nextInt()+line.nextInt()+line.nextInt());   get rid of later
+		//System.out.println(""+line.nextInt()+line.nextInt()+line.nextInt());  
 		count += isTriangle(line.nextInt(),line.nextInt(),line.nextInt());
         }
       input.close();
