@@ -13,6 +13,10 @@ public class TriangleTester{
 		Scanner line = new Scanner(input.nextLine());
 		//System.out.println(""+line.nextInt()+line.nextInt()+line.nextInt());  
 		count += isTriangle(line.nextInt(),line.nextInt(),line.nextInt());
+      while (input.hasNextInt()){
+		//System.out.println(""+line.nextInt()+line.nextInt()+line.nextInt());   get rid of later
+		count += isTriangle(input.nextInt(),input.nextInt(),input.nextInt());
+		input.nextLine();
         }
       input.close();
 	  return count; 
@@ -28,19 +32,24 @@ public class TriangleTester{
 	try{
 		File file = new File(filename);
 		Scanner input = new Scanner(file);
-		ArrayList<String[]> group = new ArrayList<String[]>(20);
-		while(input.hasNextLine()){
-			group.add(input.nextLine().split("  "));
+		int index = 0;
+		ArrayList<int[]> group = new ArrayList<int[]>();
+		while(input.hasNextInt()){
+	    for (int i = 0; i < 3; i ++){
+			group.add(new int[3]);
 		}
-		/*
-		for (int i = 0; i < group.size(); i ++){
-			System.out.println(group.get(i));
+		for (int i = 0; i < 3; i ++){
+			group.get(index+0)[i] = input.nextInt();
+			group.get(index+1)[i] = input.nextInt();
+			group.get(index+2)[i] = input.nextInt();
+			input.nextLine();
 		}
-		*/
+		index += 3;
+		}
 		for(int i = 0; i < group.size(); i += 3){
-			count += isTriangle(Integer.valueOf(group.get(i)[0]), Integer.valueOf(group.get(i+1)[0]),Integer.valueOf(group.get(i+2)[0]));
-			count += isTriangle(Integer.valueOf(group.get(i)[1]), Integer.valueOf(group.get(i+1)[1]),Integer.valueOf(group.get(i+2)[1]));
-			count += isTriangle(Integer.valueOf(group.get(i)[2]), Integer.valueOf(group.get(i+1)[2]),Integer.valueOf(group.get(i+2)[2]));
+			count += isTriangle(group.get(i)[0],group.get(i)[1],group.get(i)[2]);
+			count += isTriangle(group.get(i+1)[0],group.get(i+1)[1],group.get(i+1)[2]);
+			count += isTriangle(group.get(i+2)[0],group.get(i+2)[1],group.get(i+2)[2]);
 			}
 		return count;
 	}catch (FileNotFoundException ex) {
@@ -50,7 +59,7 @@ public class TriangleTester{
 	}
 	
 	
-    public static int isTriangle(int a, int b,int c){
+    public static int isTriangle(int a, int b, int c){
     if (a+b>c && a+c>b && b+c>a)
       return 1;
     return 0;
@@ -59,6 +68,7 @@ public class TriangleTester{
     public static void main (String[] args){
       System.out.println(countTrianglesA("inputTri.txt"));
       System.out.println(countTrianglesB("inputTri.txt"));
+      System.out.println("Second Test");
 	  
   } 
 }
