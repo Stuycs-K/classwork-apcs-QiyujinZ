@@ -22,10 +22,12 @@ public class Driver extends Text{
              }
              System.out.println("\033[0m");
         }
+        //System.out.print("\n\n\n\n");
     }
     
-    public static void drawIntegers(int[] data){
-      
+    public static void drawIntegers(int[] data, int width){
+      System.out.println("");
+      System.out.print("..........");
     }
     
     public static int[]randomList (int size){
@@ -38,8 +40,29 @@ public class Driver extends Text{
       
       
     public static void main (String[] args){
+        System.out.print(CLEAR_SCREEN);
+        System.out.print(HIDE_CURSOR);
+        go(0,0);
         drawBorder(30,80);
+        go(0,0);
         int[] numbers = randomList(3);
+        drawIntegers(numbers,80);
         System.out.println(RESET);
+        for (int i = 0; i < 35; i ++){
+          System.out.print("\n");
+        }
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
