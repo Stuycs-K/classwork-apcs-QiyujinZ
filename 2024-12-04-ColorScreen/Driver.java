@@ -25,9 +25,21 @@ public class Driver extends Text{
         //System.out.print("\n\n\n\n");
     }
     
-    public static void drawIntegers(int[] data, int width){
+    public static void drawLines(int width){
       System.out.println("");
-      System.out.print("..........");
+      int interval = (width-2)/3;
+      for (int i = 0; i < 3; i ++){
+        go(3,11);
+        if (i == 0)
+            color(background(RED));
+        if (i == 1)
+            color(background(BLUE));
+        if (i == 2)
+            color(background(WHITE));
+        for (int j = 0; j < (width-interval*i)-2; j ++){
+          System.out.print(" ");
+        }
+      }
     }
     
     public static int[]randomList (int size){
@@ -46,7 +58,7 @@ public class Driver extends Text{
         drawBorder(30,80);
         go(0,0);
         int[] numbers = randomList(3);
-        drawIntegers(numbers,80);
+        drawLines(80);
         System.out.println(RESET);
         for (int i = 0; i < 35; i ++){
           System.out.print("\n");
