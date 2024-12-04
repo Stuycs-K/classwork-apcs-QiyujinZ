@@ -3,21 +3,35 @@ public class ColorDemo{
   public static final String CLEAR_SCREEN =  "\u001b[2J";
   public static final String HIDE_CURSOR =  "\u001b[?25l";
   public static final String SHOW_CURSOR =  "\u001b[?25h";
-  
+	
   public static void drawStars() {
     int starRows = 9;
-    int starCols = 6;
+    int starCols6 = 6;
+    int starCols5 = 5;
     int starRowSpacing = 2;
     int starColSpacing = 8;
-	
-    for (int row = 1; row <= starRows; row++) {
-        for (int col = 0; col < starCols; col++) {
-            int x = col * starColSpacing + 7;
-            int y = row * starRowSpacing + 2;
-			System.out.print(ESC + y + ";" + x + "H" + ESC + "48;2;60;59;110m" + ESC + "38;2;255;255;255m" + "*" + ESC + "0m");
+
+    for (int row = 0; row < starRows; row++) {
+        int starCols;
+        if (row % 2 == 0) {
+            starCols = starCols6;
+        } else {
+            starCols = starCols5;
+        }
+         for (int col = 0; col < starCols; col++) {
+            int x;
+            if (row % 2 == 0) {
+                x = col * starColSpacing + 7;
+            } else {
+                x = col * starColSpacing + 11;
+            }
+            int y = row * starRowSpacing + 4;
+
+            System.out.print(ESC + y + ";" + x + "H" + ESC + "48;2;60;59;110m" + ESC + "38;2;255;255;255m" + "*" + ESC + "0m");
         }
     }
-	}
+}
+
 
   public static void myOutput(){
 	int width = 130;
