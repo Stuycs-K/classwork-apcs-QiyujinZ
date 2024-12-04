@@ -26,21 +26,33 @@ public class Driver extends Text{
     }
     
     public static void drawLines(int width){
-      System.out.println("");
       int interval = (width-2)/3;
       for (int i = 0; i < 3; i ++){
         go(3,11);
-        if (i == 0)
-            color(background(RED));
-        if (i == 1)
-            color(background(BLUE));
-        if (i == 2)
-            color(background(WHITE));
+        color(background(BLUE)); 
         for (int j = 0; j < (width-interval*i)-2; j ++){
           System.out.print(" ");
         }
       }
     }
+    
+    public static void printInteger(int[] data, int width){
+      System.out.print("\033[0m");
+      int interval = (width-2)/3;
+      for (int i = 0; i < 3; i ++){
+        go(2,11);
+        if (data[i] < 25)
+            color(BRIGHT,RED);
+        else if (data[i] > 75)
+            color(BRIGHT,GREEN);
+        else
+            color(BRIGHT,WHITE);   
+        for (int j = 0; j < (width-interval*(i+0.5))-4; j ++){
+          System.out.print(" ");
+          }
+          System.out.print(data[i]);
+        }
+      }
     
     public static int[]randomList (int size){
         int[] numList = new int[size];
@@ -50,7 +62,36 @@ public class Driver extends Text{
         return numList;
       }
       
-      
+    public static void drawRainbow(){
+        go(0,0);
+        int startx = 34; 
+        int starty = 18;
+        for (int i = 0; i < 6; i ++){
+          go(startx,starty);
+          if (i == 0)
+            color(background(RED));
+          if (i == 1)
+            color(background(YELLOW));
+          if (i == 2)
+            color(background(GREEN));
+          if (i == 3)
+            color(background(CYAN));
+          if (i == 4)
+            color(background(BLUE));
+          if (i == 5)
+            color(background(MAGENTA));
+          for (int j = 0; j < 3; j ++){
+            System.out.print("  ");
+            go(starty+1,startx+2);
+          }
+          for (int k = 0; k < 3; k ++){
+            System.out.print("  ");
+            go(starty-1,startx+2);
+          }
+          starty-=1;
+        }
+    }
+    
     public static void main (String[] args){
         System.out.print(CLEAR_SCREEN);
         System.out.print(HIDE_CURSOR);
@@ -59,10 +100,10 @@ public class Driver extends Text{
         go(0,0);
         int[] numbers = randomList(3);
         drawLines(80);
+        printInteger(numbers,80);
+        drawRainbow();
         System.out.println(RESET);
-        for (int i = 0; i < 35; i ++){
-          System.out.print("\n");
-        }
+        go(31,0);
   }
 }
 
