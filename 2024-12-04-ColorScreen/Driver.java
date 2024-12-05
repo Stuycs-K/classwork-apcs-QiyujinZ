@@ -64,9 +64,9 @@ public class Driver extends Text{
       
     public static void drawRainbow(){
         go(0,0);
-        int startx = 34; 
-        int starty = 18;
         for (int i = 0; i < 6; i ++){
+	      int starty = 38;
+		  int startx = 16+i; 
           go(startx,starty);
           if (i == 0)
             color(background(RED));
@@ -80,15 +80,21 @@ public class Driver extends Text{
             color(background(BLUE));
           if (i == 5)
             color(background(MAGENTA));
-          for (int j = 0; j < 3; j ++){
+          for (int j = 0; j < 4; j ++){
+			go(startx,starty);
             System.out.print("  ");
-            go(starty+1,startx+2);
+            startx-= 1;
+			starty+= 2;
           }
-          for (int k = 0; k < 3; k ++){
+		  System.out.print("      ");
+		  starty+=6;
+		  startx+=1;
+          for (int k = 0; k < 4; k ++){
+            go(startx,starty);
             System.out.print("  ");
-            go(starty-1,startx+2);
+            startx+= 1;
+			starty+= 2;
           }
-          starty-=1;
         }
     }
     
