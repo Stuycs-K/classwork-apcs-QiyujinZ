@@ -16,6 +16,7 @@ public static final int WHITE = 37;
 public static final String CLEAR_SCREEN =  "\033[2J";
 public static final String HIDE_CURSOR =  "\033[?25l";
 public static final String SHOW_CURSOR =  "\033[?25h";
+public static final String SPACE =  " ";
 
 //use this to go back to normal terminal before exiting.
 public static final String RESET = "\033[0m"+SHOW_CURSOR;
