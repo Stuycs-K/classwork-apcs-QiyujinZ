@@ -53,10 +53,15 @@ public class Caster extends Adventurer{
   }
   //heall or buff self
   public String support(){
-    this.setHP(this.getHP());
+    this.setHP(this.getHP()+2);
+	return ("Opponent's HP: "+this.getHP()+"; Current mana: " + this.getSpecial() + "/"+ this.getSpecialMax());
   }
   
   //hurt or hinder the target adventurer, consume some special resource
-  public String specialAttack(Adventurer other);
+  public String specialAttack(Adventurer other){
+	  other.setHP(other.getHP()/2);
+	  this.setSpecial(0);
+	  return ("Opponent's HP:"+other.getHP()+"; Current mana: " + this.getSpecial() + "/"+ this.getSpecialMax());
+  }
   
 }
