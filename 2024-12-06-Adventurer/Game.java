@@ -11,10 +11,14 @@ public class Game{
     System.out.println("Hello! This is a fun RPG. Your mission is to beat your enemy. type 'a' or 'attack' to attack. type 'sp' or 'special' to do special Attack. type 'su' or 'support' to recover HP and mana. type 'quit' to quit. ");
     System.out.println(Player.getName() + ", HP: " + Player.getHP() + "/" + Player.getmaxHP() + ", mana: " + Player.getSpecial() + "/" + Player.getSpecialMax());
     System.out.println(Enemy.getName() + ", HP: " + Enemy.getHP() + "/" + Enemy.getmaxHP() + ", mana: " + Enemy.getSpecial() + "/" + Enemy.getSpecialMax());
-    Scanner userInput = new Scanner (System.in);
-    String input = userInput.nextLine();
-    while (!(input.equals("quit"))){
-      if(Player.getHP() == 0){
+    while (true){
+      Scanner userInput = new Scanner (System.in);
+      String input = userInput.nextLine();
+      System.out.println("\n");
+      if (input.equals("quit")||input.equals("quit ")){
+        break;
+      }
+      else if(Player.getHP() == 0){
         System.out.println("The winner is" + Enemy.getName());
       }
       else if(Enemy.getHP() == 0){
@@ -36,7 +40,7 @@ public class Game{
             System.out.println(Player.support());
           }
           else{
-            System.out.println("That is not a valid option! As a reminder: type 'a' or 'attack' to attack. type 'sp' or 'special' to do special Attack. type 'su' or 'support' to recover HP and mana. type 'quit' to quit. ");
+            System.out.println("\nThat is not a valid option! As a reminder: type 'a' or 'attack' to attack. type 'sp' or 'special' to do special Attack. type 'su' or 'support' to recover HP and mana. type 'quit' to quit. ");
           }
         }
         else if (eAction < pAction){
@@ -47,10 +51,10 @@ public class Game{
               System.out.println(Enemy.attack(Player));
             }
             else if (option == 2){
-              System.out.println(Player.specialAttack(Enemy));
+              System.out.println(Enemy.specialAttack(Player));
             }
             else if (option == 0){
-              System.out.println(Player.support());
+              System.out.println(Enemy.support());
             }
           }
         }
