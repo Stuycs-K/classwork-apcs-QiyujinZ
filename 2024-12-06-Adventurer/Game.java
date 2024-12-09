@@ -10,26 +10,23 @@ public class Game{
     Caster Player = new Caster ("Player");
     System.out.println("Hello! This is a fun RPG. Your mission is to beat your enemy. type 'a' or 'attack' to attack. type 'sp' or 'special' to do special Attack. type 'su' or 'support' to recover HP and mana. type 'quit' to quit. ");
     System.out.println(Player.getName() + ", HP: " + Player.getHP() + "/" + Player.getmaxHP() + ", mana: " + Player.getSpecial() + "/" + Player.getSpecialMax());
-    System.out.println(Enemy.getName() + ", HP: " + Enemy.getHP() + "/" + Enemy.getmaxHP() + ", mana: " + Enemy.getSpecial() + "/" + Enemy.getSpecialMax());
+    System.out.println(Enemy.getName() + ", HP: " + Enemy.getHP() + "/" + Enemy.getmaxHP() + ", mana: " + Enemy.getSpecial() + "/" + Enemy.getSpecialMax() + "\n");
     while (true){
+      if(Player.getHP() <= 0){
+        System.out.println("The winner is " + Enemy.getName());
+        break;
+      }
+      else if(Enemy.getHP() <= 0){
+        System.out.println("The winner is " + Player.getName());
+        break;
+      }
+      System.out.println(Player.getName() + ", it's your turn to action!");
       Scanner userInput = new Scanner (System.in);
       String input = userInput.nextLine();
-      System.out.println("\n");
       if (input.equals("quit")||input.equals("quit ")){
         break;
       }
-      else if(Player.getHP() == 0){
-        System.out.println("The winner is" + Enemy.getName());
-      }
-      else if(Enemy.getHP() == 0){
-        System.out.println("The winner is" + Player.getName());
-      }
       else{
-        System.out.println(Player.getName() + ", HP: " + Player.getHP() + "/" + Player.getmaxHP() + ", mana: " + Player.getSpecial() + "/" + Player.getSpecialMax());
-        System.out.println(Enemy.getName() + ", HP: " + Enemy.getHP() + "/" + Enemy.getmaxHP() + ", mana: " + Enemy.getSpecial() + "/" + Enemy.getSpecialMax());
-        if (pAction == eAction){
-          pAction += 1;
-          System.out.println(Player.getName() + ", it's your turn to action!");
           if (input.equals("a")|| input.equals("attack")){
             System.out.println(Player.attack(Enemy));
             }
@@ -42,11 +39,8 @@ public class Game{
           else{
             System.out.println("\nThat is not a valid option! As a reminder: type 'a' or 'attack' to attack. type 'sp' or 'special' to do special Attack. type 'su' or 'support' to recover HP and mana. type 'quit' to quit. ");
           }
-        }
-        else if (eAction < pAction){
-          eAction += 1;
-          System.out.println(Enemy.getName() + ", it's your turn to action!");
-          int option = (int) Math.random()*3;
+          System.out.println("\n"+Enemy.getName() + ", it's your turn to action!");
+          int option = (int) Math.random()*3;	
             if (option == 1){
               System.out.println(Enemy.attack(Player));
             }
@@ -56,7 +50,8 @@ public class Game{
             else if (option == 0){
               System.out.println(Enemy.support());
             }
-          }
+          System.out.println(Player.getName() + ", HP: " + Player.getHP() + "/" + Player.getmaxHP() + ", mana: " + Player.getSpecial() + "/" + Player.getSpecialMax());
+          System.out.println(Enemy.getName() + ", HP: " + Enemy.getHP() + "/" + Enemy.getmaxHP() + ", mana: " + Enemy.getSpecial() + "/" + Enemy.getSpecialMax()+"\n");
         }
       }
     }
