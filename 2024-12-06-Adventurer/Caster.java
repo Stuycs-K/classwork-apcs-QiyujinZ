@@ -10,8 +10,8 @@ public class Caster extends Adventurer{
   
   public Caster(String name){
 	super(name,5);
-    this.mana = mana;
-    this.manaMax = mana;
+    this.setSpecial(20);
+    this.manaMax = 20;
   }
   
   //Abstract methods are meant to be implemented in child classes.
@@ -43,7 +43,7 @@ public class Caster extends Adventurer{
   //hurt or hinder the target adventurer
   public String attack(Adventurer other){
     other.applyDamage(8);
-	return ("Opponent's HP:"+other.getHP()+"Current HP: " + this.getHP() + "/"+ this.getmaxHP()
+	return ("Opponent's HP:"+other.getHP() + "/" + other.getmaxHP()+"; Current HP: " + this.getHP() + "/"+ this.getmaxHP()
 	+"; Current mana: " + this.getSpecial() + "/"+ this.getSpecialMax());
   }
   //heall or buff the target adventurer
@@ -52,7 +52,7 @@ public class Caster extends Adventurer{
         other.setHP(other.getHP() + 3);
     else
         other.setHP(other.getmaxHP());
-	return ("Opponent's HP:"+other.getHP()+"Current HP: " + this.getHP() + "/"+ this.getmaxHP()
+	return ("Ally's HP:"+other.getHP() + "/" + other.getmaxHP()+"; Current HP: " + this.getHP() + "/"+ this.getmaxHP()
 	+"; Current mana: " + this.getSpecial() + "/"+ this.getSpecialMax());
   }
   //heall or buff self
@@ -66,7 +66,7 @@ public class Caster extends Adventurer{
   public String specialAttack(Adventurer other){
 	  other.setHP(other.getHP()/2);
 	  this.setSpecial(0);
-	  return ("Opponent's HP:"+other.getHP()+"Current HP: " + this.getHP() + "/"+ this.getmaxHP()
+	  return ("Opponent's HP:"+other.getHP() + "/" + other.getmaxHP()+"; Current HP: " + this.getHP() + "/"+ this.getmaxHP()
 	+"; Current mana: " + this.getSpecial() + "/"+ this.getSpecialMax());
   }
   
