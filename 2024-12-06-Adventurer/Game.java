@@ -10,6 +10,7 @@ public class Game{
     Caster Player = new Caster ("Player");
     Scanner userInput = new Scanner (System.in);
     String input = userInput.nextLine();
+    System.out.println("Hello! This is a fun RPG. Your mission is to beat your enemy. type 'a' or 'attack' to attack. type 'sp' or 'special' to do special Attack. type 'su' or 'support' to recover HP and mana.");
     while (!(input.equals("quit"))){
       if(Player.getHP() == 0){
         System.out.println("The winner is" + Enemy.getName());
@@ -24,18 +25,19 @@ public class Game{
           pAction += 1;
           System.out.println(Player.getName() + ", it's your turn to action!");
           if (input.equals("a")|| input.equals("attack")){
-            Player.attack(Enemy);
+            System.out.println(Player.attack(Enemy));
             }
           else if (input.equals("sp")||input.equals("special")){
-            Player.specialAttack(Enemy);
+            System.out.println(Player.specialAttack(Enemy));
           }
           else if (input.equals("su")||input.equals("support")){
-            Player.support();
+            System.out.println(Player.support());
           }
           }
         else if (eAction < pAction){
           eAction += 1;
           System.out.println(Enemy.getName() + ", it's your turn to action!");
+            
           }
         }
       }
