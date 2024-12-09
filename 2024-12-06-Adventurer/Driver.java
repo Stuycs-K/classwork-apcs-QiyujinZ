@@ -5,5 +5,6 @@ public class Driver{
     Caster Bravo = new Caster("Bravo",10,30);
 	System.out.println(Alpha.attack(Bravo));
 	System.out.println(Alpha.support(Bravo));
+	System.out.println(Alpha.specialAttack(Bravo));
   }
 }
