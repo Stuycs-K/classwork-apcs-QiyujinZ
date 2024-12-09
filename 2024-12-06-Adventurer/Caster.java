@@ -22,7 +22,7 @@ public class Caster extends Adventurer{
   */
   //give it a short name (fewer than 13 characters)
   public String getSpecialName(){
-    return "Caster";
+    return "mana";
   }
   //accessor methods
   public int getSpecial(){
@@ -30,7 +30,11 @@ public class Caster extends Adventurer{
     }
     
   public void setSpecial(int n){
-    this.mana = n;
+    if (n > getSpecialMax()){
+      setSpecial(getSpecialMax());
+    }
+    else 
+      this.mana = n;
   }
   
   public int getSpecialMax(){
@@ -43,6 +47,7 @@ public class Caster extends Adventurer{
   //hurt or hinder the target adventurer
   public String attack(Adventurer other){
     other.applyDamage(8);
+    setSpecial(getSpecial()+3);
 	return ("Opponent's HP:"+other.getHP() + "/" + other.getmaxHP()+"; Current HP: " + this.getHP() + "/"+ this.getmaxHP()
 	+"; Current mana: " + this.getSpecial() + "/"+ this.getSpecialMax());
   }
