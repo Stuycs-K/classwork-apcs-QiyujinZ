@@ -2,12 +2,14 @@ public class Caster extends Adventurer{
 
   private int mana,manaMax;
   
-  public Caster(String name){
-    Caster(name,5,20);
-  }
-  
   public Caster(String name, int hp, int mana){
     super(name,hp);
+    this.mana = mana;
+    this.manaMax = mana;
+  }
+  
+  public Caster(String name){
+	super(name,5);
     this.mana = mana;
     this.manaMax = mana;
   }
@@ -43,16 +45,17 @@ public class Caster extends Adventurer{
     other.applyDamage(8);
   }
   //heall or buff the target adventurer
-  public String support(Adventurer other);
+  public String support(Adventurer other){
     if (other.getHP() + 3 < other.getmaxHP())
-        other.setHp(other.getHP() + 3);
+        other.setHP(other.getHP() + 3);
     else
-        other.setHp(other.getmaxHP());
-    
+        other.setHP(other.getmaxHP());
+  }
   //heall or buff self
-  public String support();
-    this.setHP (this.getHp());
-    
+  public String support(){
+    this.setHP(this.getHP());
+  }
+  
   //hurt or hinder the target adventurer, consume some special resource
   public String specialAttack(Adventurer other);
   
