@@ -63,6 +63,7 @@ public class Caster extends Adventurer{
   //heall or buff self
   public String support(){
     this.setHP(this.getHP()+2);
+    setSpecial(getSpecial()+7);
 	return ("Current HP: " + this.getHP() + "/"+ this.getmaxHP()
 	+"; Current mana: " + this.getSpecial() + "/"+ this.getSpecialMax());
   }
