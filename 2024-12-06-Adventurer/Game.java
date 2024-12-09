@@ -8,9 +8,11 @@ public class Game{
     int eAction = 0;
     CodeWarrior Enemy = new CodeWarrior ("Enemy");
     Caster Player = new Caster ("Player");
+    System.out.println("Hello! This is a fun RPG. Your mission is to beat your enemy. type 'a' or 'attack' to attack. type 'sp' or 'special' to do special Attack. type 'su' or 'support' to recover HP and mana. type 'quit' to quit. ");
+    System.out.println(Player.getName() + ", HP: " + Player.getHP() + "/" + Player.getmaxHP() + ", mana: " + Player.getSpecial() + "/" + Player.getSpecialMax());
+    System.out.println(Enemy.getName() + ", HP: " + Enemy.getHP() + "/" + Enemy.getmaxHP() + ", mana: " + Enemy.getSpecial() + "/" + Enemy.getSpecialMax());
     Scanner userInput = new Scanner (System.in);
     String input = userInput.nextLine();
-    System.out.println("Hello! This is a fun RPG. Your mission is to beat your enemy. type 'a' or 'attack' to attack. type 'sp' or 'special' to do special Attack. type 'su' or 'support' to recover HP and mana. type 'quit' to quit. ");
     while (!(input.equals("quit"))){
       if(Player.getHP() == 0){
         System.out.println("The winner is" + Enemy.getName());
@@ -36,7 +38,7 @@ public class Game{
           else{
             System.out.println("That is not a valid option! As a reminder: type 'a' or 'attack' to attack. type 'sp' or 'special' to do special Attack. type 'su' or 'support' to recover HP and mana. type 'quit' to quit. ");
           }
-          }
+        }
         else if (eAction < pAction){
           eAction += 1;
           System.out.println(Enemy.getName() + ", it's your turn to action!");
